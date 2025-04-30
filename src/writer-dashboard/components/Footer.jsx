@@ -1,0 +1,31 @@
+import PropTypes from "prop-types";
+import { Typography } from "@material-tailwind/react";
+import { HeartIcon } from "@heroicons/react/24/solid";
+
+
+export function Footer({ brandName, brandLink, routes }) {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="py-2">
+      <div className="flex w-full flex-wrap items-center justify-center gap-6 px-2 md:justify-between">
+        <Typography variant="small" className="font-normal text-inherit flex items-center">
+          &copy; {year}
+          &nbsp; &nbsp;  <p className="tracking-wider font-bold text-dark ">Manage<span className="tracking-wider py-2 font-bold text-primary " >service</span> </p>
+        </Typography>
+        <p className="hidden md:inline"> All Rights Reserved. </p>
+        <div className="flex items-center gap-4">
+       
+
+
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+
+
+Footer.displayName = "/src/widgets/layout/footer.jsx";
+
+export default Footer;
