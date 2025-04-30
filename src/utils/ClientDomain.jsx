@@ -1,5 +1,5 @@
 const getDomain = () => {
-  return "https://crendential.net/";
+  return "https://crendential.net";
 };
 
 export default getDomain;
