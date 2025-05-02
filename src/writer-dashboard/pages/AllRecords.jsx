@@ -190,12 +190,7 @@ function AllRecords() {
                 >
                   Issue Date
                 </th>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Expiry
-                </th>
+
                 <th
                   scope="col"
                   className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -292,15 +287,7 @@ function AllRecords() {
                       <td className="px-6 py-4 whitespace-nowrap text-md text-gray-500">
                         {formatDate(client.issuedOn)}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-md text-gray-500">
-                        {client.expiresOn === "Does not expire" ? (
-                          <span className="text-green-600">
-                            Does not expire
-                          </span>
-                        ) : (
-                          formatDate(client?.expiresOn)
-                        )}
-                      </td>
+
                       <td className="px-6 py-4 whitespace-nowrap">
                         <Badge
                           color={
@@ -319,7 +306,7 @@ function AllRecords() {
                       <td className="px-6 py-4 whitespace-nowrap text-md font-medium">
                         <div className="flex space-x-2">
                           <Link
-                            to={`/dashboard/all-records/${client._id}`}
+                            to={`/dashboard/all-records/${client?.slug}`}
                             className="bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1 rounded-md transition-colors flex items-center"
                           >
                             <FaEye className="mr-1" /> View

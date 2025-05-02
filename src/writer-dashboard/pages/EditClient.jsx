@@ -71,7 +71,6 @@ function EditClient() {
     },
   });
 
-
   // Set form values when client data is loaded
   useEffect(() => {
     if (client && Object.keys(client).length > 0) {
@@ -81,6 +80,7 @@ function EditClient() {
         lastName: client?.lastName || "",
         certification: client?.certification || "",
         courseHours: client?.courseHours || "",
+        slug: client?.slug || "",
         modules: client?.modules || "",
         blockChainId: client?.blockChainId || "",
         courseDescription: client?.courseDescription || "",
@@ -131,10 +131,11 @@ function EditClient() {
     formData.append("blockChainId", data.blockChainId);
     formData.append("courseDescription", data.courseDescription);
     formData.append("issuedOn", data.issuedOn);
-    formData.append("expiresOn", data.expiresOn);
+    // formData.append("expiresOn", data.expiresOn);
     formData.append("firstName", data.firstName);
     formData.append("middleName", data.middleName);
     formData.append("lastName", data.lastName);
+    formData.append("slug", data.slug.trim());
     formData.append("status", data.status);
     formData.append("marks", data.graphData.marks);
     formData.append("average", data.graphData.average);
@@ -340,6 +341,27 @@ function EditClient() {
                   {errors.blockChainId?.type === "required" && "Required field"}
                 </p>
               </div>
+              <div>
+                <div className="flex items-center space-x-1 mb-1">
+                  <FaLink className="text-gray-500" />
+                  <label className="block text-md font-medium text-gray-700">
+                    slug ( the string to indentify the cert) eg.
+                    7d751cd1-b419-4928-b4e3-103e0ba4af24#acc.CPL0HzlV (random
+                    string)
+                  </label>
+                </div>
+                <input
+                  type="text"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition"
+                  placeholder="slug"
+                  {...register("slug", {
+                    required: true,
+                  })}
+                />
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.slug?.type === "required" && "Required field"}
+                </p>
+              </div>
             </div>
 
             <div className="mb-4 mt-3">
@@ -394,7 +416,7 @@ function EditClient() {
                 </p>
               </div>
 
-              <div>
+              {/* <div>
                 <div className="flex items-center space-x-1 mb-1">
                   <FaCalendarAlt className="text-gray-500" />
                   <label className="block text-md font-medium text-gray-700">
@@ -413,7 +435,7 @@ function EditClient() {
                     required: false,
                   })}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
 

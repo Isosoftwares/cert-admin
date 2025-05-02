@@ -46,6 +46,7 @@ function ClientDetails() {
     queryKey: [`client-${_id}`],
     queryFn: getUser,
     keepPreviousData: true,
+    retry: 1,
     enabled: !!_id,
   });
 
@@ -145,7 +146,7 @@ function ClientDetails() {
       <div className="text-center py-8">
         <p className="text-lg text-gray-600">Client not found</p>
         <Link
-          to="/dashboard/clients"
+          to="/dashboard/all-records"
           className="text-blue-500 hover:underline mt-2 inline-block"
         >
           Return to clients list
@@ -249,7 +250,7 @@ function ClientDetails() {
               <div>
                 <p className="text-md text-gray-500">Client Link </p>
                 <p className="text-gray-800 break-all">{`${getDomain()}/${
-                  client._id
+                  client?.slug
                 }`}</p>
               </div>
             </div>
@@ -289,9 +290,7 @@ function ClientDetails() {
 
             <div>
               <p className="text-md text-gray-500">Expires On</p>
-              <p className="text-gray-800 font-medium">
-                {formatDate(client.expiresOn)}
-              </p>
+              <p className="text-gray-800 font-medium">Does not expire</p>
             </div>
 
             <div>
@@ -486,8 +485,10 @@ function ClientDetails() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-md">
             <div>
-              <p className="text-gray-500">Client id </p>
-              <p className="text-gray-800 font-mono break-all">{client?._id}</p>
+              <p className="text-gray-500">Client slug</p>
+              <p className="text-gray-800 font-mono break-all">
+                {client?.slug}
+              </p>
             </div>
             <div>
               <p className="text-gray-500">Created At</p>
