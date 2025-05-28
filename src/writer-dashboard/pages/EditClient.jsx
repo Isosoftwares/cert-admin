@@ -97,7 +97,7 @@ function EditClient() {
   }, [client, reset]);
 
   const updateFnc = (data) => {
-    return axios.patch(`/client/edit/${_id}`, data, {
+    return axios.patch(`/client/edit/${client?._id}`, data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

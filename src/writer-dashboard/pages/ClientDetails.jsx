@@ -55,7 +55,7 @@ function ClientDetails() {
   // Delete mutation
   const deleteMutation = useMutation({
     mutationFn: () => {
-      return axios.delete(`/client/delete/soft/${auth.userId}/${_id}`);
+      return axios.delete(`/client/delete/permanent/${auth.userId}/${client?._id}`);
     },
     onSuccess: () => {
       toast.success("Client deleted successfully");

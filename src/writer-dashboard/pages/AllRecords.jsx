@@ -312,7 +312,7 @@ function AllRecords() {
                             <FaEye className="mr-1" /> View
                           </Link>
                           <Link
-                            to={`/dashboard/all-records/edit/${client._id}`}
+                            to={`/dashboard/all-records/edit/${client.slug}`}
                             className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-md transition-colors"
                           >
                             Edit
